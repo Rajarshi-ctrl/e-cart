@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% block title %} <title>search results</title> {% endblock %}
+
+   {% for i in product %}
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="/media/{{i.photo}}" style="width:200px;height:200px;">
+        </div>
+        <form action="/cart/" method="post">     {% csrf_token %}
+        <div class="flip-card-back">
+          <h2 class="tag">{{i.name}}</h2>
+          <input hidden type="text" name="name" value="{{i.name}}">
+          <p class="desc">{{i.desc}}</p>
+          <div class="count">
+            <p class="price">Rs. {{i.price}} /-</p>
+            <input hidden type="text" name="price" value="{{i.price}}">
+            Qty : <input type="text" name="qty" class="qty">
+          </div>
+          <p><button id="add"><b>Add to Cart</b></button></p>
+        </div>
+        </form>
+      </div>
+    </div>
+  {% endfor %}
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% block title %} <title>Your cart</title> {% endblock %}
+
+<table class="tbl">
+	<tr>
+		<th class="hdng">Product Name</th>
+		<th class="hdng">Quantity</th>
+		<th class="hdng">Price</th>
+	</tr>
+	<tr>
+		<td class="tdata">{{name}}</td>
+		<td class="tdata">{{qty}}</td>
+		<td class="tdata">{{price}}</td>
+	</tr>
+</table>
+
+<h4>{{f_name}} {{l_name}}</h4>
+<h5>{{email}}</h5>
+<h6>{{add2}}, {{add1}}</h6>
+<h6>{{city}}, {{state}}, {{code}}</h6>
+
+<button type="submit" style="margin-left: 40%"> Place Order </button>
+
+{% endblock %}

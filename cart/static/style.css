@@ -1,0 +1,170 @@
+body{
+	background-image: linear-gradient(to right, blue , white);
+}
+.cont-box{
+  max-width: 50%;
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding: 30px;
+  margin: 30px;
+  margin-left: 25%;
+}
+.image{
+	max-height: 40px;
+	max-width: 40px;
+	background-color: white;
+	border-radius: 30px;
+}
+.count{
+  display: flex;
+}
+.qty{
+  max-width:25px;
+  max-height:20px;
+}
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 98%;
+  position: relative;
+  margin: auto;
+  margin-top: 5px;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+.slide{
+	margin-left: 50px;
+}
+
+.flip-card {
+  padding-left: 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background-color: transparent;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: black;
+  padding: 7px;
+  color: white;
+  transform: rotateY(180deg);
+}
+.desc{
+	padding-left: 22px;
+	text-align: left;
+	font-size: 12px;
+}
+.tag{
+	padding-left: 12px;
+	text-align: left;
+	color: #7FDBFF;
+}
+.price {
+  color: yellow;
+  font-size: 16px;
+  text-align: left;
+  padding-left: 22px;
+  padding-right: 70px;
+}
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: blue;
+  text-align: center;
+  width: 100%;
+  font-size: 18px;
+}
+.card button:hover {
+  opacity: 0.7;
+}
+.tbl{
+  padding: 20px;
+  margin: 20px;
+  font-size: 28px;
+  margin-left: 30%;
+}
+.tdata, .hdng{
+  box-shadow: 1px 1px 1px 1px black;
+  padding: 40px;
+  border-collapse: none;
+  font-size: 22px;
+}

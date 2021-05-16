@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% block title %} <title>MyCart</title> {% endblock %}
+
+{% load static %}
+  <!-- slideshow -->
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <img src="{% static 'img1.png' %}" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <img src="{% static 'img2.png' %}" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <img src="{% static 'img3.png' %}" style="width:100%">
+    </div>
+  </div>
+  <br>
+
+  <hr>
+  <h3 style="margin-left:20px;color:black;"><i><b><u>Men's Fashion</u></b></i></h3>
+  <hr>
+
+  <div class="slider">
+  {% for i in product %}
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="/media/{{i.photo}}" style="width:200px;height:200px;">
+        </div>
+        <form action="/cart/" method="post">     {% csrf_token %}
+        <div class="flip-card-back">
+          <h2 class="tag">{{i.name}}</h2>
+          <input hidden type="text" name="name" value="{{i.name}}">
+          <p class="desc">{{i.desc}}</p>
+          <div class="count">
+            <p class="price">Rs. {{i.price}} /-</p>
+            <input hidden type="text" name="price" value="{{i.price}}">
+            Qty : <input type="text" name="qty" class="qty">
+          </div>
+          <p><button id="add"><b>Add to Cart</b></button></p>
+        </div>
+        </form>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous"></script>
+
+  <script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex-1].style.display = "block";
+      setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+
+    $('.slider').slick({
+      dots: true,
+      infinite: false,
+      speed: 300,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      responsive: [
+        {
+          breakpoint: 1000,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+
+    $(function () {   
+      $('[data-bs-toggle="popover"]').popover()
+    });
+
+  </script>
+
+  {% endblock %}
